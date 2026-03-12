@@ -1,0 +1,35 @@
+# 3-Level IIEFG: Simple Card Game
+#
+# Opt {
+#     game_tree: true,
+#     num_players: 2,
+#     depth: 3,
+# }
+#
+node / chance actions L=0.33333333 M=0.33333333 H=0.33333334
+node /C:L player 1 actions b k
+node /C:M player 1 actions b k
+node /C:H player 1 actions b k
+node /C:L/P1:b player 2 actions c f
+node /C:L/P1:k player 2 actions c f
+node /C:M/P1:b player 2 actions c f
+node /C:M/P1:k player 2 actions c f
+node /C:H/P1:b player 2 actions c f
+node /C:H/P1:k player 2 actions c f
+node /C:L/P1:b/P2:c leaf payoffs 1=-2 2=2
+node /C:L/P1:b/P2:f leaf payoffs 1=1 2=-1
+node /C:L/P1:k/P2:c leaf payoffs 1=-1 2=1
+node /C:L/P1:k/P2:f leaf payoffs 1=0 2=0
+node /C:M/P1:b/P2:c leaf payoffs 1=0 2=0
+node /C:M/P1:b/P2:f leaf payoffs 1=1 2=-1
+node /C:M/P1:k/P2:c leaf payoffs 1=0 2=0
+node /C:M/P1:k/P2:f leaf payoffs 1=0 2=0
+node /C:H/P1:b/P2:c leaf payoffs 1=2 2=-2
+node /C:H/P1:b/P2:f leaf payoffs 1=1 2=-1
+node /C:H/P1:k/P2:c leaf payoffs 1=1 2=-1
+node /C:H/P1:k/P2:f leaf payoffs 1=0 2=0
+infoset pl1_L nodes /C:L
+infoset pl1_M nodes /C:M
+infoset pl1_H nodes /C:H
+infoset pl2_bet nodes /C:L/P1:b /C:M/P1:b /C:H/P1:b
+infoset pl2_check nodes /C:L/P1:k /C:M/P1:k /C:H/P1:k

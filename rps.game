@@ -1,0 +1,23 @@
+# Rock Paper Scissors IIEFG
+#
+# Opt {
+#     game_tree: true,
+#     num_players: 2,
+#     depth: 2,
+# }
+#
+node / player 1 actions R P S
+node /P1:R player 2 actions R P S
+node /P1:P player 2 actions R P S
+node /P1:S player 2 actions R P S
+node /P1:R/P2:R leaf payoffs 1=0  2=0
+node /P1:R/P2:P leaf payoffs 1=-1 2=1
+node /P1:R/P2:S leaf payoffs 1=1  2=-1
+node /P1:P/P2:R leaf payoffs 1=1  2=-1
+node /P1:P/P2:P leaf payoffs 1=0  2=0
+node /P1:P/P2:S leaf payoffs 1=-1 2=1
+node /P1:S/P2:R leaf payoffs 1=-1 2=1
+node /P1:S/P2:P leaf payoffs 1=1  2=-1
+node /P1:S/P2:S leaf payoffs 1=0  2=0
+infoset pl1_0__ nodes /P1:R /P1:P /P1:S
+infoset pl2_0__ nodes /P1:R /P1:P /P1:S

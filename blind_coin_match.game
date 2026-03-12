@@ -1,0 +1,21 @@
+# Blind Matching Pennies — Imperfect Information EFG
+#
+# Player 1 chooses H or T secretly.
+# Player 2 must respond WITHOUT knowing P1's choice.
+# Merging /P1:H and /P1:T into one infoset for P2 models this blindness.
+#
+# Opt {
+#     game_tree: true,
+#     num_players: 2,
+#     depth: 2,
+# }
+#
+node / player 1 actions H T
+node /P1:H player 2 actions H T
+node /P1:H/P2:H leaf payoffs 1=-1 2=1
+node /P1:H/P2:T leaf payoffs 1=1 2=-1
+node /P1:T player 2 actions H T
+node /P1:T/P2:H leaf payoffs 1=1 2=-1
+node /P1:T/P2:T leaf payoffs 1=-1 2=1
+infoset pl1_0__ nodes /
+infoset pl2_0__ nodes /P1:H /P1:T

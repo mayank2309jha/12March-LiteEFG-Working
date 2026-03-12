@@ -1,0 +1,22 @@
+# Simple 2-depth Coin Matching Game
+#
+# Two players each have a coin. Player 1 places their coin (Heads or Tails),
+# then Player 2 responds. If they match, Player 2 wins; if not, Player 1 wins.
+#
+# Opt {
+#     game_tree: true,
+#     num_players: 2,
+#     depth: 2,
+#     output_file: "GameInstances/coin_match.txt",
+# }
+#
+node / player 1 actions H T
+node /P1:H player 2 actions H T
+node /P1:H/P2:H leaf payoffs 1=-1 2=1
+node /P1:H/P2:T leaf payoffs 1=1 2=-1
+node /P1:T player 2 actions H T
+node /P1:T/P2:H leaf payoffs 1=1 2=-1
+node /P1:T/P2:T leaf payoffs 1=-1 2=1
+infoset pl1_0__ nodes /
+infoset pl2_0__H nodes /P1:H
+infoset pl2_1__T nodes /P1:T

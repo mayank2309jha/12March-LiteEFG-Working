@@ -1,0 +1,15 @@
+# Sam Sead IIEFG
+#
+# Opt {
+#     game_tree: true,
+#     num_players: 2,
+#     depth: 2,
+# }
+node / player 1 actions n f
+node /P1:n player 2 actions a h
+node /P1:f player 2 actions a h
+node /P1:n/P2:a leaf payoffs 1=-4 2=4
+node /P1:n/P2:h leaf payoffs 1=5 2=-5
+node /P1:f/P2:a leaf payoffs 1=2 2=-2
+node /P1:f/P2:h leaf payoffs 1=0 2=0
+infoset pl2_0__ nodes /P1:n /P1:f

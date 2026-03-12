@@ -1,0 +1,18 @@
+# Test Game - IIEFG 
+# Player 1 Chooses X or Y secretly.
+# Player 2 Chooses A or B.
+# Opt {
+#     game_tree: true,
+#     num_players: 2,
+#     depth: 2,
+# }
+#
+#
+node / player 1 actions H T
+node /P1:H player 2 actions H T
+node /P1:T player 2 actions H T
+node /P1:H/P2:H leaf payoffs 1=-1 2=1
+node /P1:H/P2:T leaf payoffs 1=1 2=-1
+node /P1:T/P2:H leaf payoffs 1=1 2=-1
+node /P1:T/P2:T leaf payoffs 1=-1 2=1
+infoset pl2_0__ nodes /P1:H /P1:T
